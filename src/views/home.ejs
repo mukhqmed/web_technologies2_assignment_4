@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+    
+    <nav class="navbar">
+        <div class="navcontainer">
+            <ul class="nav-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="/items">Items</a></li>
+                <li><a href="/logout">Logout</a></li>
+
+            </ul>
+        </div>
+    </nav>
+    <h1 style="text-align: center;">Home</h1>
+
+    <div class="movieContainer">
+        <div id="movieQuoteSection">
+            <h2>Movie Quote API</h2>
+            <img src="https://variety.com/wp-content/uploads/2022/12/Variety-100-Greatest-Movies-Covers-Hub-Image-1.jpg" alt="">
+            <% if (movieQuote) { %>
+                <p>"<%= movieQuote.quote %>" </p>
+                <p><em><%= movieQuote.author %></em></p>
+            <% } else { %>
+                <p>No movie quote available</p>
+            <% } %>
+        </div>
+    </div>
+    
+    <div class="movieContainer">
+        <div id="sportsDataSection">
+            <h2>Sports Data API</h2>
+            <% if (sportsData && sportsData.length > 0) { %>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Title</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% sportsData.forEach(sport => { %>
+                            <tr>
+                                <td><%= sport.title %></td>
+                                <td><%= sport.description %></td>
+                            </tr>
+                        <% }); %>
+                    </tbody>
+                </table>
+            <% } else { %>
+                <p>No sports data available</p>
+            <% } %>
+        </div>
+    </div>
+    
+    <div id="chartContainer">
+        <h2>Currency API</h2>
+        <canvas id="myChart"></canvas>
+    </div>
+    
+    <footer> &copy; Kaskyrbayev Mukhammed SE-2210 </footer>
+</body>
+
+<script>
+    document.addEventListener('DOMContentLoaded', async function () {
+        const chartData = await fetchChartData(); 
+
+        if (chartData) {
+            const ctx = document.getElementById('myChart').getContext('2d');
+            const myChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: chartData.labels,
+                    datasets: [{
+                        label: 'Курсы валют Казахстана, РФ, США по отношению к евро',
+                        data: chartData.values,
+                        backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                        borderColor: 'rgba(255, 99, 132, 1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }]
+                    }
+                }
+            });
+        }
+    });
+
+    async function fetchChartData() {
+        try {
+            const options = {
+                method: 'GET',
+                url: 'https://currency-conversion-and-exchange-rates.p.rapidapi.com/latest',
+                params: {
+                    from: 'EUR',
+                    to: 'KZT,RUB,JPY,USD'
+                },
+                headers: {
+                    'X-RapidAPI-Key': '99b4c00fc7mshc5b664f6e38435fp154337jsn0ce690ac84bd',
+                    'X-RapidAPI-Host': 'currency-conversion-and-exchange-rates.p.rapidapi.com'
+                }
+            };
+            const response = await axios.request(options);
+            const chartData = {
+                labels: ['KZT', 'RUB', 'JPY', 'USD'], 
+                values: [response.data.rates.KZT, response.data.rates.RUB, response.data.rates.JPY, response.data.rates.USD]
+            };
+            return chartData;
+        } catch (error) {
+            console.error('Error fetching chart data:', error);
+            return null;
+        }
+    }
+</script>
+</html>

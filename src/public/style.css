@@ -1,0 +1,329 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #f9f9f9;
+  font-family: 'Arial', sans-serif;
+}
+
+.welcome-container {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.welcome-container img {
+  margin-bottom: 10px;
+  margin-top: 40px;
+}
+
+.welcome-container h1 {
+  color: #333;
+  font-size: 28px;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #333;
+  font-size: 24px;
+  text-transform: uppercase;
+}
+
+.form-container {
+  width: 350px;
+  margin: 40px auto;
+  padding: 40px;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  background-color: #fff;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  font-weight: bold;
+  color: #444;
+  font-size: 14px;
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  border-color: 7194b6;
+  outline: none;
+}
+
+.gender-select {
+  display: flex;
+  gap: 10px;
+}
+
+.gender-select label {
+  display: inline-block;
+  margin-right: 15px;
+  color: #444;
+  font-size: 16px;
+}
+
+.submit-btn {
+  display: block;
+  width: 100%;
+  padding: 14px;
+  font-size: 18px;
+  background-color: #7194b6;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+  background-color: #233456;
+}
+
+.error-message {
+  color: #ff0000; 
+  font-size: 16px;
+  margin-top: 10px; 
+  text-align: center; 
+}
+.portfolio-container {
+  max-width: 300px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.portfolio-item {
+  background-color: #fff;
+  border-radius: 10px; 
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-bottom: 20px;
+}
+.portfolio-item p {
+ text-align: center;
+}
+.portfolio-item img {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+}
+.movieContainer img{
+  max-width: 300px;
+}
+
+.edit-form {
+  display: none;
+}
+
+.button-container {
+  margin-top: 10px;
+  text-align: center;
+}
+
+
+.button-container button {
+  background-color: #7194b6; 
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin-right: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease; 
+}
+
+
+.button-container button:hover {
+  background-color: #3d588e;
+}
+
+.button-container form button {
+  background-color: 7194b6; 
+}
+
+.add-portfolio-form label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.add-portfolio-form {
+  width: 600px; 
+  margin: 0 auto;
+  text-align: center; 
+  
+}
+
+.add-portfolio-form input[type="text"] {
+  width: 100%;
+  max-width: 600px; 
+  margin-bottom: 20px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.success-msg {
+  color: #008000;
+  font-size: 14px;
+  text-align: center;
+  margin-top: 10px;
+}
+
+#results{
+  width:800px;
+  max-width: 80%;
+  margin:0 auto;
+  margin-top: 30px;
+}
+
+#results img{
+  width:100%;
+  height:auto;
+}
+
+.movieContainer {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin: 5px auto;
+  padding: 20px;
+  max-width: 600px;
+}
+.navbar {
+  background-color: #333;
+  color: #fff;
+  padding: 20px 0;
+}
+.container{
+  max-width: 500px;
+}
+.navcontainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.logo {
+  margin: 0;
+}
+#chartContainer {
+  width: 60%;
+  margin: auto;
+}
+#chartContainer h2 {
+  margin-bottom: 0.5rem;
+  font-size: 40px;
+  margin-bottom: 30px;
+}
+.nav-links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links li {
+  display: inline-block;
+  margin-right: 20px;
+}
+
+.nav-links li:last-child {
+  margin-right: 0;
+}
+
+.nav-links li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.nav-links li a:hover {
+  text-decoration: underline;
+}
+h1, h2 {
+  color: #333;
+    text-align: center;
+    margin-top: 20px;
+}
+
+
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  background-color: #f2f2f2;
+}
+
+footer {
+  background-color: #121d28e9;  
+  border-radius: 5px;
+  color: #fff;
+
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+  margin: 20px auto; 
+  padding: 20px; 
+  text-align: center;
+}
+#movieQuoteSection, #sportsDataSection {
+  margin-bottom: 1rem;
+  text-align: center;
+
+}
+
+#movieQuoteSection h2, #sportsDataSection h2 {
+  margin-bottom: 0.5rem;
+  font-size: 40px;
+  margin-bottom: 30px;
+}
+.movieContainer p{
+  margin-top: 20px;
+  font-size: 20px;
+}
+.movieContainer p em{
+ font-size: 30px;
+}
+
+#movieQuoteSection img {
+  max-width: 100%;
+  height: auto;
+}
+footer a:hover {
+  color: #7f8fa6;
+}
